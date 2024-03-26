@@ -10,6 +10,12 @@ html, body{
     font-family: "Neue Montreal";
 }
 
+/********** Loading screen **********/
+
+.no-scroll {
+    overflow: hidden;
+}
+
 .pre-loader{
     position: fixed;
     top: 0;
@@ -87,10 +93,7 @@ html, body{
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
-.site-content {
-    position: relative;
-    z-index: -2;
-}
+/********** Nav bar **********/
 
 .glassmorphism-nav {
     display: none;
@@ -98,19 +101,20 @@ html, body{
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    background: rgba( 255, 255, 255, 0.15 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.2 );
-    backdrop-filter: blur( 5.5px );
-    -webkit-backdrop-filter: blur( 5.5px );
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 100px;
     padding: 20px;
     height: 15px;
-    width: 50%;
+    width: 100%;
     max-width: 500px;
-    top: 0;
-    position: sticky;
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
     z-index: 9999;
 }
 
@@ -150,12 +154,19 @@ html, body{
     opacity: 1;
 }
 
+/********** Content **********/
+
+.site-content {
+    position: relative;
+    z-index: -2;
+}
+
 .header {
     display: flex;
     padding: 1em;
 }
 
-.header h1 {
+.title {
     flex: 1;
     position: relative;
     font-size: 7vw;
@@ -166,17 +177,16 @@ html, body{
     text-align: center;
     justify-content: center;
     align-items: center;
-
 }
 
 footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
     display: flex;
     align-items: flex-end;
     padding: 2em;
-
+    z-index: 0;
 }
 
 footer > div {
@@ -191,7 +201,6 @@ footer > div {
     display: flex;
     gap: 2em;
     justify-content: flex-end;
-
 }
 
 .img {
@@ -201,14 +210,15 @@ footer > div {
 }
 
 .img:nth-child(1){
-    background: url(nav-1.avif) no repeat 50% 50%;
+    background: url(./nav-1.avif) no repeat 50% 50%;
     background-size: cover;
 }
 
 .img:nth-child(2){
-    background: url(nav-2.avif) no repeat 50% 50%;
+    background: url(./nav-2.avif) no repeat 50% 50%;
     background-size: cover;
 }
+
 
 @media(max-width: 900px) {
     footer {
@@ -225,3 +235,229 @@ footer > div {
         justify-content: space-between;
     }
 }
+
+section {
+    height: 100vh;
+    padding: 3rem;
+}
+
+.section-one {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.zoom-content {
+    transform: scale(0.5); 
+    transition: transform 1s ease;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: auto;
+    align-items: center;
+    max-width: 1300px;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: blur(10px);
+}
+
+.inverted-h1 {
+    position: absolute;
+    font-family: "Helvetica Now Text",sans-serif;
+    z-index: 1; /* text above video */
+    color: white;
+    mix-blend-mode: difference; /* Inverts */
+    opacity: 0.8;
+    font-size: 5em;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    text-transform: uppercase;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: auto;
+    align-items: center;
+    max-width: 1300px;
+}
+
+.img-1 {
+    height: 600px;
+    width: 600px;
+    object-fit: cover;
+}
+
+.img-2 {
+    height: 600px;
+    width: 600px;
+    object-fit: cover;
+}
+
+.img-3 {
+    height: 600px;
+    width: 600px;
+    object-fit: cover;
+}
+
+.title {
+    line-height: 1.2;
+}
+
+.title h1 {
+    font-size: 40px;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+}
+
+.title .star {
+    width: 40px;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 600;
+    max-width: 400px;
+}
+
+.p {
+    padding: 2rem 0;
+}
+
+button {
+    border: none;
+    outline: none;
+    background: linear-gradient(to right,
+    #3e32a8, #f200ff);
+    color: #fff;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+button::after{
+    content: '\e098';
+    margin-left: 1rem;
+
+}
+
+button:hover {
+    background: linear-gradient(
+    to right,#000d96, #a700b0);
+}
+
+.title h2{
+    font-size: 24px;
+    opacity: .5;
+}
+
+.line{
+    width: 100%;
+    background-color: rgb(184, 182, 182);
+    height: 2px;
+    margin-top: 1rem;
+}
+
+.type{
+    padding: 1rem 0;
+}
+
+.type :first-child{
+    font-size: 18px;
+}
+
+.g-type{
+    color: #0152fc;
+}
+
+.line-blue{
+    background-color: #0152fc;
+}
+
+
+.card-container{
+    z-index: 998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding-top: 2rem;
+}
+
+.card{
+    /* background-color: #0152fc; */
+    width: 28%;
+    border-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: .8s ease;
+}
+
+.img-card{
+    max-width: 350px;
+    max-height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.card-1{
+    background: linear-gradient(to right,
+    #545d60 , #283048
+    );
+}
+.card-2{
+    background: linear-gradient(to right,
+    #4b485a , #1f1c2c
+    );
+}
+
+.card-3{
+    background: linear-gradient(to right,
+    #3f4c6b , #535e79
+    );
+}
+
+.card:hover{
+    background: linear-gradient(to left,
+    #3a7bd5, #00d2ff
+    );
+}
+
+
+.color{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+
+.card span{
+    text-transform: uppercase;
+    font-weight: 200;
+    color: #fff;
+}
+
+.card:hover .color{
+    color: #fff;
+}
+
+.image{
+    animation: float 4s ease-in-out infinite;
+}
+
