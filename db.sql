@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 30, 2024 at 09:55 PM
+-- Generation Time: Apr 30, 2024 at 10:14 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,6 +31,40 @@ CREATE TABLE `Categories` (
   `CategoryID` int(11) NOT NULL,
   `CategoryName` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Categories`
+--
+
+INSERT INTO `Categories` (`CategoryID`, `CategoryName`) VALUES
+(1, 'Action'),
+(2, 'Adventure'),
+(18, 'Board Game Adaptation'),
+(17, 'Card'),
+(15, 'Casual'),
+(9, 'Fighting'),
+(21, 'FPS'),
+(10, 'Horror'),
+(16, 'Indie'),
+(20, 'MMORPG'),
+(25, 'MOBA'),
+(11, 'Open World'),
+(14, 'Party'),
+(12, 'Platformer'),
+(7, 'Puzzle'),
+(8, 'Racing'),
+(26, 'Roguelike'),
+(3, 'Role-playing'),
+(23, 'RTS'),
+(13, 'Sandbox'),
+(5, 'Simulation'),
+(28, 'Social Simulation'),
+(6, 'Sports'),
+(4, 'Strategy'),
+(27, 'Survival'),
+(24, 'TBS'),
+(22, 'TPS'),
+(19, 'Visual Novel');
 
 -- --------------------------------------------------------
 
@@ -190,7 +224,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `Categories`
 --
 ALTER TABLE `Categories`
-  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `Comments`

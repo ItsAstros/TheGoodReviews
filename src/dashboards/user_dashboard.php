@@ -12,7 +12,7 @@
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="../browser/browser.php">Browse</a></li>
             <li><a href="../user/profil.php">Profil</a></li>
         </ul>
     </nav>
