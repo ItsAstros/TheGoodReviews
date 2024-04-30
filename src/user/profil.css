@@ -1,5 +1,6 @@
 body {
     background-color: white;
+    background-image: url("../../media/user-background.png");
     color: #333;
     font-family: "Open Sans", sans-serif;
     overflow: auto;
