@@ -19,6 +19,7 @@ if (isset($_POST["login"])) {
         $_SESSION["user"] ='yes';
         $_SESSION["user_email"] = $user["email"];
         $_SESSION['icone'] = $user['icone'];
+        $_SESSION['userID'] = $user['UserID'];
         header("Location: /TheGoodReviews/index.php");
         exit;
     } else {

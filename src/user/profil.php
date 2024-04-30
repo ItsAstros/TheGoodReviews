@@ -79,14 +79,16 @@ $result = mysqli_stmt_get_result($stmt);
 $user = mysqli_fetch_assoc($result);
 
 $user['days_passed'] = $user['days_passed'] > 0 ? $user['days_passed'] : 0;
+$userID = $_SESSION['userID'];
 
-$queryCountReviews = "SELECT COUNT(*) as review_count FROM Reviews WHERE User_email = ?";
+$queryCountReviews = "SELECT COUNT(*) as review_count FROM Reviews WHERE UserID = ?";
 $stmtCountReviews = mysqli_prepare($conn, $queryCountReviews);
-mysqli_stmt_bind_param($stmtCountReviews, "s", $userEmail);
+mysqli_stmt_bind_param($stmtCountReviews, "i", $userID); // Assuming UserID is an integer
 mysqli_stmt_execute($stmtCountReviews);
 $resultCountReviews = mysqli_stmt_get_result($stmtCountReviews);
 $rowCountReviews = mysqli_fetch_assoc($resultCountReviews);
 $reviewCount = $rowCountReviews['review_count'];
+
 
 if ($reviewCount > 44) {
     $status = "Nerd";

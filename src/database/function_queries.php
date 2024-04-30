@@ -94,37 +94,6 @@ function getUserLikedReviews($conn, $userEmail) {
     return $result;
 }
 
-// Function to get tags of an article
-function getTags($conn, $articleID) {
-    $sql = "
-    SELECT t.TagName
-    FROM Tags t
-    JOIN ArticleTags at ON t.TagID = at.TagID
-    WHERE at.ArticleID = $articleID;
-    ";
-    $result = mysqli_query($conn, $sql);
-    if (!$result) {
-        die("Error fetching tags for article: " . mysqli_error($conn));
-    }
-    $tags = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $tags[] = $row['TagName'];
-    }
-    return $tags;
-}
 
-// Function to get number of articles for a game
-function getArticlesCountForGame($conn, $gameID) {
-    $sql = "
-    SELECT COUNT(*) AS ArticleCount
-    FROM Articles
-    WHERE GameID = $gameID;
-    ";
-    $result = mysqli_query($conn, $sql);
-    if (!$result) {
-        die("Error fetching article count for game: " . mysqli_error($conn));
-    }
-    $row = mysqli_fetch_assoc($result);
-    return $row['ArticleCount'];
-}
+
 ?>
