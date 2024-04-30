@@ -297,6 +297,7 @@ if ($reviewCount > 44) {
                         <div class="col-sm-3"></div>
                         <div class="col-sm-9 text-secondary">
                             <input type="submit" class="btn btn-primary px-4" value="Save Changes" id="saveChangesButton" disabled>
+                            <button class="btn btn-primary px-4" id="Logout">Logout</button>
                         </div>
                     </div>
                 </form>
@@ -400,6 +401,10 @@ editProfileButton.addEventListener('click', function() {
 });
 document.getElementById('changePhotoButton').addEventListener('click', function() {
     fileInput.click(); 
+});
+document.getElementById("Logout").addEventListener("click", function(event) {
+    event.preventDefault(); 
+    window.location.href = "../login-register/logout.php";
 });
 </script>
 
