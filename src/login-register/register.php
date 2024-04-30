@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION["user"])) {
    header("Location: /TheGoodReviews/index.php");
-   exit; // Ensure the script stops executing after the redirect
+   exit; 
 }
 ?>
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ if (isset($_SESSION["user"])) {
                $email = $_POST["email"];
                $password = $_POST["password"];
                $passwordRepeat = $_POST["repeat_password"];
-               
+
                $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
                $errors = array();
@@ -45,6 +45,10 @@ if (isset($_SESSION["user"])) {
                if ($password!==$passwordRepeat) {
                 array_push($errors,"Password does not match");
                }
+               if (!isset($_POST['age_validation'])) {
+                array_push($errors,"You must confirm you are at least 15 years old");
+               }
+               
                require_once "database.php";
                $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
                $stmt->bind_param("s", $email);
@@ -88,6 +92,14 @@ if (isset($_SESSION["user"])) {
                 <div class="user-box">
                     <input type="password" name="repeat_password" required="">
                     <label>Repeat Password</label>
+                </div>
+                <div class="check-list">
+                    <ul class="inline-list">
+                        <li>
+                            <input type="checkbox" id="age_validation" name="age_validation" required="">
+                            <label for="age_validation">I am 15 or older</label>
+                        </li>
+                    </ul>
                 </div>
                 <div class="btn">
                     <input type="submit" class="btn--login" value="Register" name="submit">

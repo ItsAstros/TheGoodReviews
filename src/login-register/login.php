@@ -2,11 +2,10 @@
 session_start();
 if (isset($_SESSION["user"])) {
    header("Location: /TheGoodReviews/index.php");
-   exit; // Ensure the script stops executing after the redirect
+   exit; 
 }
 
-$error_message = ""; // Initialize error message variable
-
+$error_message = "";
 if (isset($_POST["login"])) {
    $email = $_POST["email"];
    $password = $_POST["password"];
@@ -17,8 +16,9 @@ if (isset($_POST["login"])) {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
     if ($user && password_verify($password, $user["password"])) {
-        $_SESSION["user"] = "yes";
+        $_SESSION["user"] ='yes';
         $_SESSION["user_email"] = $user["email"];
+        $_SESSION['icone'] = $user['icone'];
         header("Location: /TheGoodReviews/index.php");
         exit;
     } else {
