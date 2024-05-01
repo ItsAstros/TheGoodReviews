@@ -25,7 +25,41 @@ function head_template() {
 ';
 }
 
-function header_template() {
+function admin_header_template() {
+  echo '
+<header class="header" data-header>
+  <div class="container">
+    <nav class="glassmorphism-nav">
+      <ul>
+          <li><a href="../../index.php">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="../login-register/login.php">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+';
+}
+function user_header_template() {
+  echo '
+<header class="header" data-header>
+  <div class="container">
+    <nav class="glassmorphism-nav">
+      <ul>
+          <li><a href="../../index.php">Home</a></li>
+          <li><a href="../browser/browser.php">Browse</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="../user/profil.php">Profil</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+';
+}
+function visitor_header_template() {
     echo '
   <header class="header" data-header>
     <div class="container">

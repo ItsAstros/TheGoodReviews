@@ -5,6 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include('../database/function_queries.php');
 include('../database/db.php');
+require_once("../static/header.php");   
 
 $searchTerm = isset($_GET['search-text']) ? $_GET['search-text'] : '';
 $searchCategory = isset($_GET['search-categories']) ? $_GET['search-categories'] : '';
@@ -26,18 +27,22 @@ if (!empty($searchTerm) && !empty($searchCategory)) {
 <head>
     <title>TheGoodReviews</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
-<div class="glassmorphism-nav">
-    <ul>
-        <li><a href="../dashboards/user_dashboard.php">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="../browser/browser.php">Browse</a></li>
-        <li><a href="../user/profil.php">Profil</a></li>
-    </ul>
-</div>
+<section class="browser-header'>
+  <?php 
+if (isset($_SESSION["user"])) {
+  if ($_SESSION["isAdmin"]=="yes") {
+      admin_header_template();
+  } else {
+    user_header_template();
+  }
+} else {
+  visitor_header_template();
+}
+  ?>
+</section>
 <section class="search-form">
         <form action="" method="GET" name="search" role="search" style="width: 70%;">
         <div class="form-group row">

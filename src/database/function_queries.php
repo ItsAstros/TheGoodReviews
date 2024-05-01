@@ -68,6 +68,16 @@ function getReviewsByGameId($conn, $gameId) {
     $result = $stmt->get_result();
     return $result;
 }
+function getReviewsDetails($conn, $ReviewID){
+    $stmt = $conn->prepare("SELECT r.*,u.icone AS user_icone, u.full_name AS user_name, u.email AS user_email, g.PathDetails as PathDetails,g.Title AS game_title, g.Description AS game_description, g.Developer as game_dev, g.ReleaseDate AS game_date FROM Reviews r
+                            JOIN users u ON r.UserID = u.UserID
+                            JOIN Games g ON r.GameID = g.GameID
+                            WHERE r.ReviewID = ?");
+    $stmt->bind_param("i", $ReviewID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_assoc();
+}
 
 
 ?>

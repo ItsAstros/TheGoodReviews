@@ -20,6 +20,11 @@ if (isset($_POST["login"])) {
         $_SESSION["user_email"] = $user["email"];
         $_SESSION['icone'] = $user['icone'];
         $_SESSION['userID'] = $user['UserID'];
+        if($user['isAdmin'] == true){
+            $_SESSION['isAdmin'] = 'yes';
+        }else{
+            $_SESSION['isAdmin'] = 'no';
+        }
         header("Location: /TheGoodReviews/index.php");
         exit;
     } else {
