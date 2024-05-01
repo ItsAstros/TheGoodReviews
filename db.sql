@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 01, 2024 at 12:01 PM
+-- Generation Time: May 01, 2024 at 05:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -147,11 +147,32 @@ CREATE TABLE `Games` (
 --
 
 INSERT INTO `Games` (`GameID`, `Title`, `Description`, `ReleaseDate`, `Developer`, `Platform`, `path`, `Price`, `PathDetails`) VALUES
-(1, 'The Witcher 3: Wild Hunt', 'An open-world action RPG', '2015-05-19', 'CD Projekt Red', '../../media/platform/PLAYSTATION.png', '../../media/games/TheWitcher3WildHunt.png', 35, '../../media/games/TheWitcher3WildHunt_details.png'),
-(2, 'Grand Theft Auto V', 'An action-adventure game', '2013-09-17', 'Rockstar North', '../../media/platform/PLAYSTATION.png', '../../media/games/GTAV.png', 35, '../../media/games/GTAV_details.png'),
-(3, 'Minecraft', 'A sandbox video game', '2011-11-18', 'Mojang', '../../media/platform/PC.png', '../../media/games/Minecraft.png', 25, '../../media/games/Minecraft_details.png'),
-(4, 'Red Dead Redemption 2', 'An action-adventure game', '2018-10-26', 'Rockstar Games', '../../media/platform/PLAYSTATION.png', '../../media/games/RedDeadRedemption2.png', 60, '../../media/games/RedDeadRedemption2_details.png'),
-(5, 'The Legend of Zelda: Breath of the Wild', 'An action-adventure game', '2017-03-03', 'Nintendo EPD', '../../media/platform/SWITCH.png', '../../media/games/ZeldaBreathOfTheWild.png', 50, '../../media/games/ZeldaBreathOfTheWild_details.png');
+(1, 'The Witcher 3: Wild Hunt', 'An open-world action RPG', '2015-05-19', 'CD Projekt Red', '../../assets/images/platform/PLAYSTATION.png', '../../assets/images/games/TheWitcher3.png', 35, '../../assets/images/games/BANNER/TheWitcher3WildHunt_banner.png'),
+(2, 'Grand Theft Auto V', 'An action-adventure game', '2013-09-17', 'Rockstar North', '../../assets/images/platform/PLAYSTATION.png', '../../assets/images/games/GTAV.png', 35, '../../assets/images/games/BANNER/GTAV_banner.jpg'),
+(3, 'Minecraft', 'A sandbox video game', '2011-11-18', 'Mojang', '../../assets/images/platform/PC.png', '../../assets/images/games/Minecraft.png', 25, '../../assets/images/games/BANNER/MINECRAFT_banner.jpg'),
+(4, 'Red Dead Redemption 2', 'An action-adventure game', '2018-10-26', 'Rockstar Games', '../../assets/images/platform/PLAYSTATION.png', '../../assets/images/games/RedDeadRedemption2.png', 60, '../../assets/images/games/BANNER/RedDeadRedemption2_details.png'),
+(5, 'The Legend of Zelda: Breath of the Wild', 'An action-adventure game', '2017-03-03', 'Nintendo EPD', '../../assets/images/platform/SWITCH.png', '../../assets/images/games/ZeldaBreathOfTheWild.png', 50, '../../assets/images/games/BANNER/ZeldaBreathOfTheWild_banner.png'),
+(6, 'The Elder Scrolls V: Skyrim', 'An action role-playing game', '2011-11-11', 'Bethesda Game Studios', '../../assets/images/platform/PC.png', '../../assets/images/games/SKYRIM.png', 40, '../../assets/images/games/BANNER/SKYRIM_banner.jpg'),
+(7, 'Dark Souls III', 'An action role-playing game', '2016-04-12', 'FromSoftware', '../../assets/images/platform/PLAYSTATION.png', '../../assets/images/games/DARKSOULSIII.png', 30, '../../assets/images/games/banner/DARKSOULSIII.jpg'),
+(8, 'Portal 2', 'A puzzle-platform game', '2011-04-19', 'Valve Corporation', '../../assets/images/platform/PC.png', '../../assets/images/games/portal2.png', 20, '../../assets/images/games/BANNER/portal2_banner.jpg'),
+(9, 'Super Smash Bros Ultimate', 'A crossover fighting game', '2018-12-07', 'Bandai Namco Studios', '../../assets/images/platform/SWITCH.png', '../../assets/images/games/SMBUltimate.png', 50, '../../assets/images/games/BANNER/SMBUltimate_banner.jpg'),
+(10, 'The Last of Us', 'An action-adventure game', '2013-06-14', 'Naughty Dog', '../../assets/images/platform/PLAYSTATION.png', '../../assets/images/games/TheLastOfUs.png', 40, '../../assets/images/games/BANNER/TheLastOfUs_banner.jpg'),
+(11, 'Counter Strike 2', 'A first-person shooter game', '2023-04-22', 'Valve Corporation', 'To be added', '../../assets/images/games/CS2.png', NULL, '../../assets/images/games/BANNER/CS2_banner.jpg'),
+(12, 'League of Legends', 'A multiplayer online battle arena game', '2009-10-27', 'Riot Games', 'To be added', '../../assets/images/games/LOL.png', NULL, '../../assets/images/games/BANNER/LOL_banner.jpg'),
+(13, 'Hades', 'An action roguelike game', '2020-09-17', 'Supergiant Games', '../../assets/images/platform/PC.png', '../../assets/images/games/HADES.png', 25, '../../assets/images/games/BANNER/HADES_banner.jpg'),
+(14, 'Cuphead', 'A run and gun indie video game', '2017-09-29', 'Studio MDHR', '../../assets/images/platform/PC.png', '../../assets/images/games/CUPHEAD.png', 20, '../../assets/images/games/BANNER/CUPHEAD_banner.png'),
+(15, 'Celeste', 'A platforming video game', '2018-01-25', 'Maddy Makes Games', '../../assets/images/platform/PC.png', '../../assets/images/games/CELESTE.png', 15, '../../assets/images/games/BANNER/CELESTE_banner.jpg'),
+(16, 'Fortnite', 'A battle royale game', '2017-07-25', 'Epic Games', 'To be added', '../../assets/images/games/FORTNITE.png', NULL, '../../assets/images/games/BANNER/FORTNITE_banner.jpg'),
+(17, 'Rocket League', 'A vehicular soccer game', '2015-07-07', 'Psyonix', 'To be added', '../../assets/images/games/RL.png', NULL, '../../assets/images/games/BANNER/RL_banner.jpg'),
+(18, 'Need For Speed Underground 2', 'A racing video game', '2004-11-09', 'EA Black Box', 'To be added', '../../assets/images/games/NFS2.png', NULL, '../../assets/images/games/BANNER/NFS2_banner.jpg'),
+(19, 'Need For Speed Most Wanted', 'A racing video game', '2005-11-15', 'EA Black Box', 'To be added', '../../assets/images/games/NFS_MW.png', NULL, '../../assets/images/games/BANNER/NFS_MW_banner.jpg'),
+(20, 'Trackmania', 'A racing video game', '2003-11-19', 'Nadeo', 'To be added', '../../assets/images/games/TRACKMANIA.png', NULL, '../../assets/images/games/BANNER/TRACKMANIA_banner.png'),
+(21, 'Ori and the Blind Forest', 'A platform-adventure Metroidvania game', '2015-03-11', 'Moon Studios', 'To be added', '../../assets/images/games/ORI.png', NULL, '../../assets/images/games/BANNER/ORI_banner.jpg'),
+(22, 'The Forest', 'A survival horror game', '2018-04-30', 'Endnight Games', 'To be added', '../../assets/images/games/TheForest.png', NULL, '../../assets/images/games/BANNER/TheForest_banner.jpg'),
+(23, 'Assassins Creed 2', 'An action-adventure video game', '2009-11-17', 'Ubisoft', 'To be added', '../../assets/images/games/AC2.png', NULL, '../../assets/images/games/BANNER/AC2_banner.png'),
+(24, 'Call of Duty Black Ops 2', 'A first-person shooter video game', '2012-11-13', 'Treyarch', 'To be added', '../../assets/images/games/BLACKOPS2.png', NULL, '../../assets/images/games/BANNER/BLACKOPS2_banner.jpg'),
+(25, 'Subnautica', 'An open-world survival adventure game', '2018-01-23', 'Unknown Worlds Entertainment', 'To be added', '../../assets/images/games/SUBNAUTICA.png', NULL, '../../assets/images/games/BANNER/SUBNAUTICA_banner.jpg'),
+(26, 'Sea Of Thieves', 'A pirate-themed action-adventure game', '2018-03-20', 'Rare', 'To be added', '../../assets/images/games/SEAOFTHIEVES.png', NULL, '../../assets/images/games/BANNER/SEAOFTHIEVES_banner.jpg');
 
 -- --------------------------------------------------------
 
@@ -178,8 +199,16 @@ CREATE TABLE `Reviews` (
   `GameID` int(11) DEFAULT NULL,
   `ReviewText` text DEFAULT NULL,
   `Rating` decimal(3,2) DEFAULT NULL,
-  `ReviewDate` timestamp NOT NULL DEFAULT current_timestamp()
+  `ReviewDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `ReviewTitle` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Reviews`
+--
+
+INSERT INTO `Reviews` (`ReviewID`, `UserID`, `GameID`, `ReviewText`, `Rating`, `ReviewDate`, `ReviewTitle`) VALUES
+(1, 1, 3, 'TEST SEXE', 5.00, '2024-04-30 13:30:00', 'Gros classique');
 
 -- --------------------------------------------------------
 
@@ -197,15 +226,16 @@ CREATE TABLE `users` (
   `icone` varchar(128) NOT NULL DEFAULT '../../media/pp/defaultpp.png',
   `X` varchar(128) DEFAULT NULL,
   `Discord` varchar(128) DEFAULT NULL,
-  `datecreation` date NOT NULL
+  `datecreation` date NOT NULL,
+  `IsAdmin` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`UserID`, `full_name`, `email`, `password`, `reset_token_hash`, `reset_token_expires_at`, `icone`, `X`, `Discord`, `datecreation`) VALUES
-(1, 'Flo', 'flor.cliquet@gmail.com', '$2y$10$AwwMSLsmy2bBCRcF.rUp4ORFrOB0XRSyjaV2ILRfGJKjbXsVodwBK', NULL, NULL, '../../media/pp/66314c41a6332_denji', NULL, NULL, '2024-04-30');
+INSERT INTO `users` (`UserID`, `full_name`, `email`, `password`, `reset_token_hash`, `reset_token_expires_at`, `icone`, `X`, `Discord`, `datecreation`, `IsAdmin`) VALUES
+(1, 'Flo', 'flor.cliquet@gmail.com', '$2y$10$AwwMSLsmy2bBCRcF.rUp4ORFrOB0XRSyjaV2ILRfGJKjbXsVodwBK', NULL, NULL, '../../media/pp/66314c41a6332_denji', NULL, NULL, '2024-04-30', NULL);
 
 --
 -- Indexes for dumped tables
@@ -282,7 +312,7 @@ ALTER TABLE `Comments`
 -- AUTO_INCREMENT for table `Games`
 --
 ALTER TABLE `Games`
-  MODIFY `GameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `GameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `Likes`
@@ -294,7 +324,7 @@ ALTER TABLE `Likes`
 -- AUTO_INCREMENT for table `Reviews`
 --
 ALTER TABLE `Reviews`
-  MODIFY `ReviewID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ReviewID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
