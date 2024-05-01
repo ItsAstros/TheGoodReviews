@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 30, 2024 at 10:14 PM
+-- Generation Time: May 01, 2024 at 12:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -37,34 +37,56 @@ CREATE TABLE `Categories` (
 --
 
 INSERT INTO `Categories` (`CategoryID`, `CategoryName`) VALUES
-(1, 'Action'),
-(2, 'Adventure'),
-(18, 'Board Game Adaptation'),
-(17, 'Card'),
-(15, 'Casual'),
-(9, 'Fighting'),
-(21, 'FPS'),
-(10, 'Horror'),
-(16, 'Indie'),
-(20, 'MMORPG'),
-(25, 'MOBA'),
-(11, 'Open World'),
-(14, 'Party'),
-(12, 'Platformer'),
-(7, 'Puzzle'),
-(8, 'Racing'),
-(26, 'Roguelike'),
-(3, 'Role-playing'),
-(23, 'RTS'),
-(13, 'Sandbox'),
-(5, 'Simulation'),
-(28, 'Social Simulation'),
-(6, 'Sports'),
-(4, 'Strategy'),
-(27, 'Survival'),
-(24, 'TBS'),
-(22, 'TPS'),
-(19, 'Visual Novel');
+(180, 'Adventure'),
+(214, 'Art'),
+(181, 'Board Game Adaptation'),
+(182, 'Card'),
+(183, 'Casual'),
+(220, 'Competitive'),
+(215, 'Construction and Management Simulation'),
+(221, 'Cooperative'),
+(212, 'Educational'),
+(229, 'Exploration'),
+(208, 'Fantasy'),
+(184, 'Fighting'),
+(185, 'FPS'),
+(209, 'Historical'),
+(186, 'Horror'),
+(187, 'Indie'),
+(216, 'Life Simulation'),
+(226, 'Local Multiplayer'),
+(219, 'Massively Multiplayer'),
+(188, 'MMORPG'),
+(189, 'MOBA'),
+(223, 'Multiplayer'),
+(213, 'Music'),
+(210, 'Mystery'),
+(228, 'Narrative'),
+(225, 'Offline'),
+(224, 'Online'),
+(190, 'Open World'),
+(191, 'Party'),
+(192, 'Platformer'),
+(193, 'Puzzle'),
+(194, 'Racing'),
+(195, 'Roguelike'),
+(196, 'Role-playing'),
+(197, 'RTS'),
+(198, 'Sandbox'),
+(207, 'Sci-Fi'),
+(199, 'Simulation'),
+(222, 'Single Player'),
+(200, 'Social Simulation'),
+(201, 'Sports'),
+(211, 'Stealth'),
+(227, 'Story Rich'),
+(202, 'Strategy'),
+(203, 'Survival'),
+(204, 'TBS'),
+(217, 'Time Management'),
+(205, 'TPS'),
+(218, 'Virtual Reality'),
+(206, 'Visual Novel');
 
 -- --------------------------------------------------------
 
@@ -91,6 +113,17 @@ CREATE TABLE `GameCategories` (
   `CategoryID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `GameCategories`
+--
+
+INSERT INTO `GameCategories` (`GameID`, `CategoryID`) VALUES
+(1, 215),
+(2, 185),
+(3, 198),
+(4, 221),
+(5, 209);
+
 -- --------------------------------------------------------
 
 --
@@ -104,8 +137,21 @@ CREATE TABLE `Games` (
   `ReleaseDate` date DEFAULT NULL,
   `Developer` varchar(100) DEFAULT NULL,
   `Platform` varchar(50) DEFAULT NULL,
-  `CoverImage` varchar(255) DEFAULT NULL
+  `path` varchar(250) DEFAULT NULL,
+  `Price` int(11) DEFAULT NULL,
+  `PathDetails` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Games`
+--
+
+INSERT INTO `Games` (`GameID`, `Title`, `Description`, `ReleaseDate`, `Developer`, `Platform`, `path`, `Price`, `PathDetails`) VALUES
+(1, 'The Witcher 3: Wild Hunt', 'An open-world action RPG', '2015-05-19', 'CD Projekt Red', '../../media/platform/PLAYSTATION.png', '../../media/games/TheWitcher3WildHunt.png', 35, '../../media/games/TheWitcher3WildHunt_details.png'),
+(2, 'Grand Theft Auto V', 'An action-adventure game', '2013-09-17', 'Rockstar North', '../../media/platform/PLAYSTATION.png', '../../media/games/GTAV.png', 35, '../../media/games/GTAV_details.png'),
+(3, 'Minecraft', 'A sandbox video game', '2011-11-18', 'Mojang', '../../media/platform/PC.png', '../../media/games/Minecraft.png', 25, '../../media/games/Minecraft_details.png'),
+(4, 'Red Dead Redemption 2', 'An action-adventure game', '2018-10-26', 'Rockstar Games', '../../media/platform/PLAYSTATION.png', '../../media/games/RedDeadRedemption2.png', 60, '../../media/games/RedDeadRedemption2_details.png'),
+(5, 'The Legend of Zelda: Breath of the Wild', 'An action-adventure game', '2017-03-03', 'Nintendo EPD', '../../media/platform/SWITCH.png', '../../media/games/ZeldaBreathOfTheWild.png', 50, '../../media/games/ZeldaBreathOfTheWild_details.png');
 
 -- --------------------------------------------------------
 
@@ -224,7 +270,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `Categories`
 --
 ALTER TABLE `Categories`
-  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=230;
 
 --
 -- AUTO_INCREMENT for table `Comments`
@@ -236,7 +282,7 @@ ALTER TABLE `Comments`
 -- AUTO_INCREMENT for table `Games`
 --
 ALTER TABLE `Games`
-  MODIFY `GameID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `GameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `Likes`
