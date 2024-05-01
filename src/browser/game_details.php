@@ -20,7 +20,7 @@ if (isset($_GET['game_id'])) {
 <head>
     <title><?php echo $gameDetails['Title'];?></title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/browser-style.css">
 </head>
 <body>
 <div class="glassmorphism-nav">

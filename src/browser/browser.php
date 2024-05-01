@@ -27,10 +27,9 @@ if (!empty($searchTerm) && !empty($searchCategory)) {
 <head>
     <title>TheGoodReviews</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/browser-style.css">
 </head>
 <body>
-<section class="browser-header'>
   <?php 
 if (isset($_SESSION["user"])) {
     if ($_SESSION["isAdmin"]=="yes") {
@@ -42,7 +41,6 @@ if (isset($_SESSION["user"])) {
     visitor_header_template();
     }
 ?>
-</section>
 <section class="search-form">
         <form action="" method="GET" name="search" role="search" style="width: 70%;">
         <div class="form-group row">
