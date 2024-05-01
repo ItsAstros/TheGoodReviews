@@ -18,7 +18,7 @@ if (isset($_GET['game_id'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TheGoodReviews</title>
+    <title><?php echo $gameDetails['Title'];?></title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -32,17 +32,31 @@ if (isset($_GET['game_id'])) {
         <li><a href="../user/profil.php">Profil</a></li>
     </ul>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1><?php echo $gameDetails['Title']; ?></h1>
-            <p><?php echo $gameDetails['Description']; ?></p>
-            <p>Developer: <?php echo $gameDetails['Developer']; ?></p>
-            <p>Platform: <?php echo $gameDetails['Platform']; ?></p>
-            <p>Price: <?php echo $gameDetails['Price']; ?></p>
-            <p>Release Date: <?php echo $gameDetails['ReleaseDate']; ?></p>
+<div class="header">
+        <div class="title">
+           <?php echo $gameDetails['Title']; ?>
         </div>
+</div>
+<div class="details-container">
+    <div class="image">
+        <img src="<?php echo $gameDetails['PathDetails']; ?>" alt="<?php echo $gameDetails['Title']; ?>">
     </div>
+    <div class="platform">
+        <img src="<?php echo $gameDetails['Platform']; ?>" alt="<?php echo $gameDetails['Title']; ?>">
+    </div>
+    <div class="price">
+        <p class="card-price"><?php echo $gameDetails['Price']; ?> $</p>
+    </div>
+    <div class="content-details">
+            <p><?php echo $gameDetails['Description']; ?></p>
+    </div>
+    <div class="footer-content-details">
+        <p>Developed by <?php echo $gameDetails['Developer']; ?></p>
+        <p></p>
+        <p>Relesed on <?php echo $gameDetails['ReleaseDate']; ?></p>
+    </div>
+</div>
+<div>
     <div class="row">
         <div class="col-md-12">
             <h2>Reviews</h2>

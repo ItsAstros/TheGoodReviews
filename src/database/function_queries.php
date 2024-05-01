@@ -54,7 +54,7 @@ function searchGamesByTextAndCategory($conn, $searchTerm, $categoryName) {
 }
 
 function getGameById($conn, $id) {
-    $stmt = $conn->prepare("SELECT Title, Developer,Price, Platform, Description, ReleaseDate, path FROM Games WHERE GameID = ?");
+    $stmt = $conn->prepare("SELECT Title, Developer,PathDetails,Price, Platform, Description, ReleaseDate, path FROM Games WHERE GameID = ?");
     $stmt->bind_param("i", $id); 
     $stmt->execute();
     $result = $stmt->get_result();

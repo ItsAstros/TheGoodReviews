@@ -84,7 +84,26 @@ body {
 .glassmorphism-nav a:hover::before {
     opacity: 1;
 }
+/************************************************************************************/
+/*                       Header Styling                                             */
+/************************************************************************************/
+.header {
+    display: flex;
+    padding: 1em;
+}
 
+.title {
+    flex: 1;
+    position: relative;
+    font-size: 7vw;
+    font-family: "PP Editorial Old";
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
 /************************************************************************************/
 /*                       Search Form Styling                                        */
 /************************************************************************************/
@@ -297,6 +316,127 @@ body {
 .card__description {
     color: #666;
     font-size: 14px;
+}
+/************************************************************************************/
+/*                       Details Content Styling                                             */
+/************************************************************************************/
+
+.details-container {
+    flex-direction: column;
+    align-items: center; 
+    display:flex;
+    position: relative; 
+    color: white;
+    width: 80%;
+    z-index: 2;
+    height: 800px;
+    background-color: blue;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.image img {
+    position: absolute;
+    top: 5%;
+    right: 40%; 
+    width: 20%;
+    z-index: 4;
+    height: 36.5%; 
+    border-radius: 20px;
+    border: 5px solid grey;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.platform img{
+    position: absolute;
+    top: 41.5%;
+    left: 47%; 
+    width: 5%;
+    z-index: 4;
+    height: auto; 
+}
+
+.details-container::after {
+    content: '';
+    position: absolute;
+    top: 24%; 
+    z-index: 3;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: grey; 
+    transform: translateY(-50%); 
+}
+
+.price{
+    margin-left: 27.5%;
+    margin-top: 10.35%;
+}
+
+.card-price {
+    z-index: 7;
+	display: inline-block;
+  
+    width: auto;
+	height: 50px;
+	
+	background-color: grey;
+	-webkit-border-radius: 3px 4px 4px 3px;
+	-moz-border-radius: 3px 4px 4px 3px;
+	border-radius: 3px 4px 4px 3px;
+	
+	border-left: 1px solid grey ;
+
+	margin-left: 19px;
+	
+	position: relative;
+	
+	color: white;
+	font-weight: 300;
+	font-size: 22px;
+	line-height: 50px;
+
+	padding: 0 10px 0 10px;
+}
+
+.card-price:before {
+	content: "";
+	position: absolute;
+	display: block;
+	left: -25px;
+	width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-bottom: 25px solid transparent;
+	border-right: 25px solid grey;
+}
+
+.card-price:after {
+	content: "";
+	background-color: white;
+	border-radius: 50%;
+	width: 4px;
+	height: 4px;
+	display: block;
+	position: absolute;
+	left: -12px;
+	top: 23px;
+}
+
+.content-details {
+    margin-top: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+}
+.footer-content-details{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+
 }
 
 /************************************************************************************/
