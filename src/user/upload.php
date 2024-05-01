@@ -53,7 +53,7 @@ try {
     }
 
     // Define the directory to store uploaded files
-    $uploadDir = "../../media/pp/";
+    $uploadDir = "../../assets/images/pp/";
 
     // Generate a unique filename to avoid overwriting existing files
     $uniqueFilename = uniqid() . '_' . basename($_FILES["profileImage"]["name"]);
@@ -69,7 +69,6 @@ try {
         $userEmail = $_SESSION["user_email"];
 
         // Update the user's profile image path in the database
-        // Update the user's profile image path in the database
         $stmt = $mysqli->prepare("UPDATE users SET icone = ? WHERE email = ?");
 
         // Store the values in variables
@@ -81,7 +80,6 @@ try {
 
         $_SESSION['icone'] = $iconPath;
 
-        // Return a success message
         $response = [
             'success' => true,
             'message' => 'File uploaded successfully',
@@ -92,14 +90,12 @@ try {
         throw new Exception('Failed to move uploaded file to destination directory');
     }
 } catch (Exception $e) {
-    // Handle exceptions and return error message
     $response = [
         'success' => false,
         'message' => $e->getMessage()
     ];
 }
 
-// Set the content type to JSON
 header('Content-Type: application/json');
 // Return the JSON response
 echo json_encode($response);

@@ -2,7 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include '../login-register/database.php';
+include '../database/db.php';
+require_once("../static/header.php");   
 
 session_start();
 
@@ -25,16 +26,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "POST request received";
     $userEmail = $_SESSION['user_email']; 
 
-    if (isset($_POST['deletePhoto']) && $_SESSION['icone'] !== "../../media/pp/defaultpp.png") {
-        $defaultIcon = "../../media/pp/defaultpp.png";
+    if (isset($_POST['deletePhoto']) && $_SESSION['icone'] !== "../../assets/images/pp/defaultpp.png") {
+        $defaultIcon = "../../assets/images/pp/defaultpp.png";
         $query = "SELECT *, DATEDIFF(NOW(), datecreation) AS days_passed FROM users WHERE email = ?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "s", $userEmail);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt); 
         $user = mysqli_fetch_assoc($result); 
-        $deletedIcon = "../../media/pp/" . basename($user['icone']);
-                if (file_exists($deletedIcon) && unlink($deletedIcon)) {
+        $deletedIcon = "../../assets/images/pp/" . basename($user['icone']);                
+        if (file_exists($deletedIcon) && unlink($deletedIcon)) {
             $query = "UPDATE users SET icone = ? WHERE email = ?";
             $stmt = mysqli_prepare($conn, $query);
             mysqli_stmt_bind_param($stmt, "ss", $defaultIcon, $userEmail);
@@ -55,13 +56,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_execute($stmt);
     }
 
-    // Check if password is set, not empty, and at least 8 characters long
     if (isset($_POST['password']) && strlen($_POST['password']) >= 8) {
         $newPassword = $_POST['password'];
         $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
         $query = "UPDATE users SET password = ? WHERE email = ?"; 
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "ss", $hashedPassword, $userEmail);
+        mysqli_stmt_execute($stmt);
+    }
+    if (isset($_POST['X']) && $_POST['X'] !== $user['X']) {
+        $newX = $_POST['X'];
+        $query = "UPDATE users SET X = ? WHERE email = ?";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "ss", $newX, $userEmail);
+        mysqli_stmt_execute($stmt);
+    }
+    if (isset($_POST['Discord']) && $_POST['Discord'] !== $user['Discord']) {
+        $newDiscord = $_POST['Discord'];
+        $query = "UPDATE users SET Discord = ? WHERE email = ?";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "ss", $newDiscord, $userEmail);
         mysqli_stmt_execute($stmt);
     }
 
@@ -83,7 +97,7 @@ $userID = $_SESSION['userID'];
 
 $queryCountReviews = "SELECT COUNT(*) as review_count FROM Reviews WHERE UserID = ?";
 $stmtCountReviews = mysqli_prepare($conn, $queryCountReviews);
-mysqli_stmt_bind_param($stmtCountReviews, "i", $userID); // Assuming UserID is an integer
+mysqli_stmt_bind_param($stmtCountReviews, "i", $userID); 
 mysqli_stmt_execute($stmtCountReviews);
 $resultCountReviews = mysqli_stmt_get_result($stmtCountReviews);
 $rowCountReviews = mysqli_fetch_assoc($resultCountReviews);
@@ -115,16 +129,17 @@ if ($reviewCount > 44) {
 <body>
 <div class="container">
     <div class="main-body">
-    
-        <nav class="glassmorphism-nav">
-        <ul>
-            <li><a href="../../index.php">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="../user/profil.php">Profil</a></li>
-        </ul>
-    </nav>    
+            <?php 
+        if (isset($_SESSION["user"])) {
+            if ($_SESSION["isAdmin"]=="yes") {
+                admin_header_template();
+            } else {
+                user_header_template();
+            }
+            } else {
+            visitor_header_template();
+            }
+        ?>
         <div class="row gutters-sm">
             <div class="col-md-12">
                 <button type="button" class="btn btn-primary" id="editProfileButton">Edit Profile</button>
@@ -153,7 +168,7 @@ if ($reviewCount > 44) {
                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 class="mb-0">
                         <a <?php if ($user['X'] !== null){ ?> href="https://X.com/<?php echo $user['X']; ?>" <?php } else { ?> href="https://X.com/" <?php } ?> class='target'>
-                            <img src="../../media/logo-black.png" width="24" height="24" class="mr-2 icon-inline text-info">
+                            <img src="../../assets/images/socialmedia/logo-black.png" width="24" height="24" class="mr-2 icon-inline text-info">
                             <span class="text-secondary" style="text-decoration: none; color: inherit;">X</span>
                         </a>
                     </h6>
@@ -168,7 +183,7 @@ if ($reviewCount > 44) {
                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 class="mb-0">
                         <a href="https://discord.com" class='target'>
-                            <img src="../../media/discord.png" width="24" height="24" class="mr-2 icon-inline text-info">
+                            <img src="../../assets/images/socialmedia/discord.png" width="24" height="24" class="mr-2 icon-inline text-info">
                             <span class="text-secondary" style="text-decoration: none; color: inherit;">Discord</span>
                         </a>
                     </h6>
@@ -364,9 +379,11 @@ document.getElementById('profileForm').addEventListener('submit', function(event
 });
 fileInput.addEventListener('change', function() {
     const file = fileInput.files[0];
+    console.log(file)
     if (file) {
         const formData = new FormData();
         formData.append('profileImage', file);
+        console.log(formData.get('profileImage'));
 
         fetch('upload.php', {
             method: 'POST',
@@ -375,7 +392,7 @@ fileInput.addEventListener('change', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                const imagePath = '../../media/pp/' + data.fileName;
+                const imagePath = '../../assets/images/pp/' + data.fileName;
                 document.getElementById('profileImage').src = imagePath;
             } else {
                 console.error('File upload failed');
