@@ -40,7 +40,7 @@ if (isset($_POST["login"])) {
 <body>
 <div class="showcase">
     <div class="video-container">
-        <video src="../../media/loginbackground.mp4" autoplay muted loop id="myVideo"></video>
+        <video src="../../assets/images/loginbackground.mp4" autoplay muted loop id="myVideo"></video>
     <div>
 </div>
     <div class="container">

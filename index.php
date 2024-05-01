@@ -3,12 +3,12 @@ session_start();
 
 if (isset($_SESSION["user"])) {
     if ($_SESSION["admin"]) {
-        header("Location: /TheGoodReviews/src/dashboards/admin_dashboard.php");
+        header("Location: /tgr/src/dashboards/admin_dashboard.php");
     } else {
-        header("Location: /TheGoodReviews/src/dashboards/user_dashboard.php");
+        header("Location: /tgr/src/dashboards/user_dashboard.php");
     }
 } else {
-    header("Location: /TheGoodReviews/src/dashboards/public_dashboard.php");
+    header("Location: /tgr/src/dashboards/public_dashboard.php");
 }
 ?>
 
