@@ -33,15 +33,15 @@ if (!empty($searchTerm) && !empty($searchCategory)) {
 <section class="browser-header'>
   <?php 
 if (isset($_SESSION["user"])) {
-  if ($_SESSION["isAdmin"]=="yes") {
-      admin_header_template();
-  } else {
-    user_header_template();
-  }
-} else {
-  visitor_header_template();
-}
-  ?>
+    if ($_SESSION["isAdmin"]=="yes") {
+        admin_header_template();
+    } else {
+        user_header_template();
+    }
+    } else {
+    visitor_header_template();
+    }
+?>
 </section>
 <section class="search-form">
         <form action="" method="GET" name="search" role="search" style="width: 70%;">

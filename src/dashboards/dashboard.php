@@ -28,15 +28,15 @@ require_once("../static/header.php");
 
   <!-- **HEADER** -->
   <?php 
-if (isset($_SESSION["user"])) {
-  if ($_SESSION["isAdmin"]=="yes") {
-      admin_header_template();
+  if (isset($_SESSION["user"])) {
+    if ($_SESSION["isAdmin"]=="yes") {
+        admin_header_template();
+    } else {
+      user_header_template();
+    }
   } else {
-    user_header_template();
+    visitor_header_template();
   }
-} else {
-  visitor_header_template();
-}
   ?>
 
   <main>
