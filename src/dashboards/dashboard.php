@@ -8,6 +8,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 session_start();
 
 require_once("../static/header.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,20 +58,20 @@ require_once("../static/header.php");
       
 
 
-      <!-- **TOPICS** -->
-      <section class="topics" id="topics" aria-labelledby="topic-label">
+      <!-- **HOTGAMES SLIDER** -->
+      <section class="hotgames" id="hotgames" aria-labelledby="hotgame-label">
         <div class="container">
 
-          <div class="card topic-card">
+          <div class="card hotgame-card">
 
             <div class="card-content">
 
-              <h2 class="headline headline-2 section-title card-title" id="topic-label">
-                Hot topics
+              <h2 class="headline headline-2 section-title card-title" id="hotgame-label">
+                Hot games of the month
               </h2>
 
               <p class="card-text">
-                Don't miss out on the latest games reviews...
+                Don't miss out on the best games this month...
               </p>
 
               <div class="btn-group">
@@ -88,90 +89,108 @@ require_once("../static/header.php");
             <div class="slider" data-slider>
               <ul class="slider-list" data-slider-container>
 
-                <li class="slider-item">
-                  <a href="#" class="slider-card">
+              <li class="slider-item">
+                <a href="../browser/game_details.php?game_id=6" class="slider-card">
 
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="../../assets/images/topic-1.png" width="507" height="618" loading="lazy" alt="Sport"
-                        class="img-cover">
-                    </figure>
+                <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
+                  <img src="../../assets/images/games/SKYRIM.png" width="507" height="618" loading="lazy" alt="Skyrim"
+                  class="img-cover">
+                </figure>
 
-                    <div class="slider-content">
-                      <span class="slider-title">Sport</span>
+                <div class="slider-content">
+                  <span class="slider-title">Skyrim</span>
 
-                      <p class="slider-subtitle">38 Articles</p>
-                    </div>
+                  <p class="slider-subtitle">31 Articles</p>
+                </div>
 
-                  </a>
-                </li>
+                </a>
+              </li>
 
-                <li class="slider-item">
-                  <a href="#" class="slider-card">
 
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="../../assets/images/topic-2.png" width="507" height="618" loading="lazy" alt="Travel"
-                        class="img-cover">
-                    </figure>
+              <li class="slider-item">
+                <a href="../browser/game_details.php?game_id=21" class="slider-card">
 
-                    <div class="slider-content">
-                      <span class="slider-title">Travel</span>
+                <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
+                  <img src="../../assets/images/games/ORI.png" width="507" height="618" loading="lazy" alt="Ori and the Blind Forest"
+                  class="img-cover">
+                </figure>
 
-                      <p class="slider-subtitle">63 Articles</p>
-                    </div>
+                <div class="slider-content">
+                  <span class="slider-title">Ori and the Blind Forest</span>
 
-                  </a>
-                </li>
+                  <p class="slider-subtitle">16 Articles</p>
+                </div>
 
-                <li class="slider-item">
-                  <a href="#" class="slider-card">
+                </a>
+              </li>
 
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="../../assets/images/topic-3.png" width="507" height="618" loading="lazy" alt="Design"
-                        class="img-cover">
-                    </figure>
+              <li class="slider-item">
+                <a href="../browser/game_details.php?game_id=8" class="slider-card">
 
-                    <div class="slider-content">
-                      <span class="slider-title">Design</span>
+                <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
+                  <img src="../../assets/images/games/portal2.png" width="507" height="618" loading="lazy" alt="Portal 2"
+                  class="img-cover">
+                </figure>
 
-                      <p class="slider-subtitle">78 Articles</p>
-                    </div>
+                <div class="slider-content">
+                  <span class="slider-title">Portal 2</span>
 
-                  </a>
-                </li>
+                  <p class="slider-subtitle">18 Articles</p>
+                </div>
 
-                <li class="slider-item">
-                  <a href="#" class="slider-card">
+                </a>
+              </li>
 
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="../../assets/images/topic-4.png" width="507" height="618" loading="lazy" alt="Movie"
-                        class="img-cover">
-                    </figure>
+              <li class="slider-item">
+                <a href="../browser/game_details.php?game_id=25" class="slider-card">
 
-                    <div class="slider-content">
-                      <span class="slider-title">Movie</span>
+                <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
+                  <img src="../../assets/images/games/SUBNAUTICA.png" width="507" height="618" loading="lazy" alt="Subnautica"
+                  class="img-cover">
+                </figure>
 
-                      <p class="slider-subtitle">125 Articles</p>
-                    </div>
+                <div class="slider-content">
+                  <span class="slider-title">Subnautica</span>
 
-                  </a>
-                </li>
+                  <p class="slider-subtitle">21 Articles</p>
+                </div>
 
-                <li class="slider-item">
-                  <a href="#" class="slider-card">
+                </a>
+              </li>
 
-                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
-                      <img src="../../assets/images/topic-5.png" width="507" height="618" loading="lazy" alt="Lifestyle"
-                        class="img-cover">
-                    </figure>
+              <li class="slider-item">
+                <a href="../browser/game_details.php?game_id=22" class="slider-card">
 
-                    <div class="slider-content">
-                      <span class="slider-title">Lifestyle</span>
+                <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
+                  <img src="../../assets/images/games/TheForest.png" width="507" height="618" loading="lazy" alt="The Forest"
+                  class="img-cover">
+                </figure>
 
-                      <p class="slider-subtitle">78 Articles</p>
-                    </div>
+                <div class="slider-content">
+                  <span class="slider-title">The Forest</span>
 
-                  </a>
-                </li>
+                  <p class="slider-subtitle">16 Articles</p>
+                </div>
+
+                </a>
+              </li>
+
+              <li class="slider-item">
+                <a href="../browser/game_details.php?game_id=14" class="slider-card">
+
+                <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
+                  <img src="../../assets/images/games/CUPHEAD.png" width="507" height="618" loading="lazy" alt="Cuphead"
+                  class="img-cover">
+                </figure>
+
+                <div class="slider-content">
+                  <span class="slider-title">Cuphead</span>
+
+                  <p class="slider-subtitle">18 Articles</p>
+                </div>
+
+                </a>
+              </li>
 
               </ul>
             </div>
@@ -201,17 +220,17 @@ require_once("../static/header.php");
               <div class="card feature-card">
 
                 <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                  <img src="../../assets/images/featured-1.png" width="1602" height="903" loading="lazy"
-                    alt="Self-observation is the first step of inner unfolding" class="img-cover">
+                <img src="../../assets/images/games/BANNER/ORI_banner.jpg" width="1602" height="903" loading="lazy"
+                    alt="Ori and the blind forest cover" class="img-cover">
                 </figure>
 
                 <div class="card-content">
 
                   <div class="card-wrapper">
                     <div class="card-tag">
-                      <a href="#" class="span hover-2">#Travel</a>
+                      <a href="#" class="span hover-2">#Platformer</a>
 
-                      <a href="#" class="span hover-2">#Lifestyle</a>
+                      <a href="#" class="span hover-2">#Adventure</a>
                     </div>
 
                     <div class="wrapper">
@@ -223,7 +242,7 @@ require_once("../static/header.php");
 
                   <h3 class="headline headline-3">
                     <a href="#" class="card-title hover-2">
-                      Self-observation is the first step of inner unfolding
+                      Blooming Feelings or Mass Deforestation?
                     </a>
                   </h3>
 
@@ -234,9 +253,9 @@ require_once("../static/header.php");
                         class="profile-banner">
 
                       <div>
-                        <p class="card-title">Joseph</p>
+                        <p class="card-title">Haatk</p>
 
-                        <p class="card-subtitle">25 Nov 2022</p>
+                        <p class="card-subtitle">25 Nov 2023</p>
                       </div>
                     </div>
 
@@ -253,17 +272,17 @@ require_once("../static/header.php");
               <div class="card feature-card">
 
                 <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                  <img src="../../assets/images/featured-2.png" width="1602" height="903" loading="lazy"
-                    alt="Self-observation is the first step of inner unfolding" class="img-cover">
+                  <img src="../../assets/images/games/BANNER/CELESTE_banner.jpg" width="1602" height="903" loading="lazy"
+                    alt="Celeste cover" class="img-cover">
                 </figure>
 
                 <div class="card-content">
 
                   <div class="card-wrapper">
                     <div class="card-tag">
-                      <a href="#" class="span hover-2">#Design</a>
+                      <a href="#" class="span hover-2">#Platformer</a>
 
-                      <a href="#" class="span hover-2">#Movie</a>
+                      <a href="#" class="span hover-2">#Adventure</a>
                     </div>
 
                     <div class="wrapper">
@@ -275,20 +294,20 @@ require_once("../static/header.php");
 
                   <h3 class="headline headline-3">
                     <a href="#" class="card-title hover-2">
-                      Self-observation is the first step of inner unfolding
+                      More Than Just A Great Platformer
                     </a>
                   </h3>
 
                   <div class="card-wrapper">
 
                     <div class="profile-card">
-                      <img src="../../assets/images/author-1.png" width="48" height="48" loading="lazy" alt="Joseph"
+                      <img src="../../assets/images/author-3.png" width="48" height="48" loading="lazy" alt="Joseph"
                         class="profile-banner">
 
                       <div>
-                        <p class="card-title">Joseph</p>
+                        <p class="card-title">Thaz</p>
 
-                        <p class="card-subtitle">25 Nov 2022</p>
+                        <p class="card-subtitle">15 Feb 2024</p>
                       </div>
                     </div>
 
@@ -305,17 +324,17 @@ require_once("../static/header.php");
               <div class="card feature-card">
 
                 <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                  <img src="../../assets/images/featured-3.png" width="1602" height="903" loading="lazy"
-                    alt="Self-observation is the first step of inner unfolding" class="img-cover">
+                  <img src="../../assets/images/games/BANNER/BOTW_banner.jpg" width="1602" height="903" loading="lazy"
+                    alt="BOTW cover" class="img-cover">
                 </figure>
 
                 <div class="card-content">
 
                   <div class="card-wrapper">
                     <div class="card-tag">
-                      <a href="#" class="span hover-2">#Design</a>
+                      <a href="#" class="span hover-2">#Adventure</a>
 
-                      <a href="#" class="span hover-2">#Movie</a>
+                      <a href="#" class="span hover-2">#Puzzle</a>
                     </div>
 
                     <div class="wrapper">
@@ -327,20 +346,20 @@ require_once("../static/header.php");
 
                   <h3 class="headline headline-3">
                     <a href="#" class="card-title hover-2">
-                      Self-observation is the first step of inner unfolding
+                      One of the finest video games ever made
                     </a>
                   </h3>
 
                   <div class="card-wrapper">
 
                     <div class="profile-card">
-                      <img src="../../assets/images/author-1.png" width="48" height="48" loading="lazy" alt="Joseph"
+                      <img src="../../assets/images/author-5.png" width="48" height="48" loading="lazy" alt="Joseph"
                         class="profile-banner">
 
                       <div>
-                        <p class="card-title">Joseph</p>
+                        <p class="card-title">Bob</p>
 
-                        <p class="card-subtitle">25 Nov 2022</p>
+                        <p class="card-subtitle">05 Mar 2024</p>
                       </div>
                     </div>
 
@@ -357,42 +376,42 @@ require_once("../static/header.php");
               <div class="card feature-card">
 
                 <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                  <img src="../../assets/images/featured-4.png" width="1602" height="903" loading="lazy"
-                    alt="Self-observation is the first step of inner unfolding" class="img-cover">
+                  <img src="../../assets/images/games/BANNER/NFS_MW_banner.jpg" width="1602" height="903" loading="lazy"
+                    alt="Need for Speed Most Wanted cover" class="img-cover">
                 </figure>
 
                 <div class="card-content">
 
                   <div class="card-wrapper">
                     <div class="card-tag">
-                      <a href="#" class="span hover-2">#Design</a>
+                      <a href="#" class="span hover-2">#Racing</a>
 
-                      <a href="#" class="span hover-2">#Movie</a>
+                      <a href="#" class="span hover-2">#Adventure</a>
                     </div>
 
                     <div class="wrapper">
                       <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
 
-                      <span class="span">6 mins read</span>
+                      <span class="span">2 mins read</span>
                     </div>
                   </div>
 
                   <h3 class="headline headline-3">
                     <a href="#" class="card-title hover-2">
-                      Self-observation is the first step of inner unfolding
+                      Is It Truly a Bad Game?
                     </a>
                   </h3>
 
                   <div class="card-wrapper">
 
                     <div class="profile-card">
-                      <img src="../../assets/images/author-1.png" width="48" height="48" loading="lazy" alt="Joseph"
+                      <img src="../../assets/images/author-7.png" width="48" height="48" loading="lazy" alt="Joseph"
                         class="profile-banner">
 
                       <div>
-                        <p class="card-title">Joseph</p>
+                        <p class="card-title">Maria</p>
 
-                        <p class="card-subtitle">25 Nov 2022</p>
+                        <p class="card-subtitle">12 Dec 2023</p>
                       </div>
                     </div>
 
@@ -409,42 +428,42 @@ require_once("../static/header.php");
               <div class="card feature-card">
 
                 <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
-                  <img src="../../assets/images/featured-5.png" width="1602" height="903" loading="lazy"
-                    alt="Self-observation is the first step of inner unfolding" class="img-cover">
+                  <img src="../../assets/images/games/BANNER/NIERAUTOMATA_banner.jpg" width="1602" height="903" loading="lazy"
+                    alt="Nier:Automata cover" class="img-cover">
                 </figure>
 
                 <div class="card-content">
 
                   <div class="card-wrapper">
                     <div class="card-tag">
-                      <a href="#" class="span hover-2">#Design</a>
+                      <a href="#" class="span hover-2">#HackNSlash</a>
 
-                      <a href="#" class="span hover-2">#Movie</a>
+                      <a href="#" class="span hover-2">#RPG</a>
                     </div>
 
                     <div class="wrapper">
                       <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
 
-                      <span class="span">6 mins read</span>
+                      <span class="span">4 mins read</span>
                     </div>
                   </div>
 
                   <h3 class="headline headline-3">
                     <a href="#" class="card-title hover-2">
-                      Self-observation is the first step of inner unfolding
+                      A sublime and stylish action-RPG
                     </a>
                   </h3>
 
                   <div class="card-wrapper">
 
                     <div class="profile-card">
-                      <img src="../../assets/images/author-1.png" width="48" height="48" loading="lazy" alt="Joseph"
+                      <img src="../../assets/images/author-5.png" width="48" height="48" loading="lazy" alt="Joseph"
                         class="profile-banner">
 
                       <div>
-                        <p class="card-title">Joseph</p>
+                        <p class="card-title">Lee-Sin</p>
 
-                        <p class="card-subtitle">25 Nov 2022</p>
+                        <p class="card-subtitle">01 Jan 2023</p>
                       </div>
                     </div>
 
@@ -489,9 +508,9 @@ require_once("../static/header.php");
 
             <li>
               <button class="card tag-btn">
-                <img src="../../assets/images/tag1.png" width="32" height="32" loading="lazy" alt="Travel">
+                <img src="../../assets/images/tag1.png" width="32" height="32" loading="lazy" alt="Adventure">
 
-                <p class="btn-text">Travel</p>
+                <p class="btn-text">Adventure</p>
               </button>
             </li>
 
@@ -499,7 +518,7 @@ require_once("../static/header.php");
               <button class="card tag-btn">
                 <img src="../../assets/images/tag2.png" width="32" height="32" loading="lazy" alt="Culture">
 
-                <p class="btn-text">Culture</p>
+                <p class="btn-text">Platformer</p>
               </button>
             </li>
 
@@ -507,7 +526,7 @@ require_once("../static/header.php");
               <button class="card tag-btn">
                 <img src="../../assets/images/tag3.png" width="32" height="32" loading="lazy" alt="Lifestyle">
 
-                <p class="btn-text">Lifestyle</p>
+                <p class="btn-text">Puzzle</p>
               </button>
             </li>
 
@@ -515,7 +534,7 @@ require_once("../static/header.php");
               <button class="card tag-btn">
                 <img src="../../assets/images/tag4.png" width="32" height="32" loading="lazy" alt="Fashion">
 
-                <p class="btn-text">Fashion</p>
+                <p class="btn-text">Racing</p>
               </button>
             </li>
 
@@ -523,7 +542,7 @@ require_once("../static/header.php");
               <button class="card tag-btn">
                 <img src="../../assets/images/tag5.png" width="32" height="32" loading="lazy" alt="Food">
 
-                <p class="btn-text">Food</p>
+                <p class="btn-text">RPG</p>
               </button>
             </li>
 
@@ -531,7 +550,7 @@ require_once("../static/header.php");
               <button class="card tag-btn">
                 <img src="../../assets/images/tag6.png" width="32" height="32" loading="lazy" alt="Space">
 
-                <p class="btn-text">Space</p>
+                <p class="btn-text">MOBA</p>
               </button>
             </li>
 
@@ -539,7 +558,7 @@ require_once("../static/header.php");
               <button class="card tag-btn">
                 <img src="../../assets/images/tag7.png" width="32" height="32" loading="lazy" alt="Animal">
 
-                <p class="btn-text">Animal</p>
+                <p class="btn-text">Shooter</p>
               </button>
             </li>
 
@@ -547,7 +566,7 @@ require_once("../static/header.php");
               <button class="card tag-btn">
                 <img src="../../assets/images/tag8.png" width="32" height="32" loading="lazy" alt="Minimal">
 
-                <p class="btn-text">Minimal</p>
+                <p class="btn-text">Strategy</p>
               </button>
             </li>
 
@@ -555,7 +574,7 @@ require_once("../static/header.php");
               <button class="card tag-btn">
                 <img src="../../assets/images/tag9.png" width="32" height="32" loading="lazy" alt="Interior">
 
-                <p class="btn-text">Interior</p>
+                <p class="btn-text">HackNSlash</p>
               </button>
             </li>
 
@@ -563,7 +582,7 @@ require_once("../static/header.php");
               <button class="card tag-btn">
                 <img src="../../assets/images/tag10.png" width="32" height="32" loading="lazy" alt="Plant">
 
-                <p class="btn-text">Plant</p>
+                <p class="btn-text">Indie</p>
               </button>
             </li>
 
@@ -579,7 +598,7 @@ require_once("../static/header.php");
               <button class="card tag-btn">
                 <img src="../../assets/images/tag12.png" width="32" height="32" loading="lazy" alt="Business">
 
-                <p class="btn-text">Business</p>
+                <p class="btn-text">RTS</p>
               </button>
             </li>
 

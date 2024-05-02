@@ -79,5 +79,4 @@ function getReviewsDetails($conn, $ReviewID){
     return $result->fetch_assoc();
 }
 
-
 ?>

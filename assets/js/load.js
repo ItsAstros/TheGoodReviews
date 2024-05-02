@@ -61,6 +61,9 @@ anime.timeline({ loop: false})
                 }
             });
           document.body.classList.remove('no-scroll');
+          setTimeout(function() {
+            document.querySelector('.pre-loader').style.zIndex = '-2';
+          }, 2000);
         }
     })
 
