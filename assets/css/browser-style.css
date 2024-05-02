@@ -18,6 +18,7 @@
   --text-default: hsla(217, 24%, 59%, 1);
   --text-carolina-blue: hsla(199, 89%, 49%, 1);
   --text-slate-gray: hsla(217, 17%, 48%, 1);
+  --text-dark-blue: rgb(68, 79, 119);
   --text-dark-brown: rgb(36, 29, 29);
 
   /** Gradient colors */
