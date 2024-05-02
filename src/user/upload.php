@@ -97,6 +97,5 @@ try {
 }
 
 header('Content-Type: application/json');
-// Return the JSON response
 echo json_encode($response);
 ?>
