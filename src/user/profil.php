@@ -122,6 +122,11 @@ if ($reviewCount > 44) {
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BDDIHM Website Project">
+    <link rel="shortcut icon" href="../../assets/images/favicon.svg" type="image/svg+xml">
     <title>TheGoodReviews - User Profile</title>
     <link rel="stylesheet" href="../../assets/css/profil-style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -379,20 +384,16 @@ document.getElementById('profileForm').addEventListener('submit', function(event
 });
 fileInput.addEventListener('change', function() {
     const file = fileInput.files[0];
-    console.log(file)
     if (file) {
+        console.log("File selected:", file.name)
         const formData = new FormData();
         formData.append('profileImage', file);
-        console.log(formData.get('profileImage'));
-
         fetch('upload.php', {
             method: 'POST',
             body: formData
         })
-        .then(response => response)
-
-        .then(response => console.log(response))
-        .then(data => {
+       .then(response => response.json())
+       .then(data => {
             if (data.success) {
                 const imagePath = '../../assets/images/pp/' + data.fileName;
                 document.getElementById('profileImage').src = imagePath;
@@ -400,11 +401,12 @@ fileInput.addEventListener('change', function() {
                 console.error('File upload failed');
             }
         })
-        .catch(error => {
+       .catch(error => {
             console.error('Error occurred while uploading file:', error);
         });
     }
 });
+
 
 editProfileButton.addEventListener('click', function() {
     if (fullNameDisplay.style.display !== 'none') {

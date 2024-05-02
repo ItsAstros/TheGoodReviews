@@ -5,7 +5,7 @@ $token = $_POST["token"];
 
 $token_hash = hash("sha256", $token);
 
-$mysqli = require __DIR__ . "/database.php";
+$mysqli = require __DIR__ . "/../database/db.php";
 
 $sql = "SELECT * FROM users
         WHERE reset_token_hash = ?";

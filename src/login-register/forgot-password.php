@@ -3,7 +3,7 @@
 <head>
     <title>Forgot Password</title>
     <meta charset="UTF-8">
-    <link href="style.css" rel="stylesheet">
+    <link href="../../assets/css/login-register-style.css" rel="stylesheet">
 </head>
 <body>
 <div class="showcase">

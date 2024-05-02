@@ -14,12 +14,12 @@ if (isset($_SESSION["user"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="../../assets/css/login-register-style.css" rel="stylesheet">
 </head>
 <body>
 <div class="showcase">
     <div class="video-container">
-        <video src="../../media/loginbackground.mp4" autoplay muted loop id="myVideo"></video>
+        <video src="../../assets/images/loginbackground.mp4" autoplay muted loop id="myVideo"></video>
     </div>
     <div class="container">
         <div class="login-box">
@@ -51,7 +51,7 @@ if (isset($_SESSION["user"])) {
                 array_push($errors,"You must confirm you are at least 15 years old");
                }
                
-               require_once "database.php";
+               require_once "../database/db.php";
                $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
                $stmt->bind_param("s", $email);
                $stmt->execute();
@@ -71,6 +71,22 @@ if (isset($_SESSION["user"])) {
                 $stmt->bind_param("ssss", $fullName, $email, $passwordHash, $dateCreation);
                 if ($stmt->execute()) {
                     echo "<div class='alert alert-success'>You are registered successfully.</div>";
+                    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+                    $stmt->bind_param("s", $email);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $user = $result->fetch_assoc();
+                    $_SESSION["user"] ='yes';
+                    $_SESSION["user_email"] = $user["email"];
+                    $_SESSION['icone'] = $user['icone'];
+                    $_SESSION['userID'] = $user['UserID'];
+                    if($user['isAdmin'] == true){
+                        $_SESSION['isAdmin'] = 'yes';
+                    }else{
+                        $_SESSION['isAdmin'] = 'no';
+                    }
+                    header("Location: ../dashboards/dashboard.php");
+
                 } else {
                     echo "Error: " . $stmt->error;
                 }

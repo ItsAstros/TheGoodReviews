@@ -5,7 +5,7 @@ $token = $_GET["token"];
 
 $token_hash = hash("sha256", $token);
 
-$mysqli = require __DIR__ . "/database.php";
+$mysqli = require __DIR__ . "/../database/db.php";
 
 $sql = "SELECT * FROM users
         WHERE reset_token_hash = ?";
@@ -36,7 +36,7 @@ if (strtotime($user["reset_token_expires_at"]) <= time()) {
 <head>
     <title>Reset Password</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link href="../../assets/css/login-register-style.css" rel="stylesheet">
     <style>
         /* CSS for pop-up */
         .popup {
@@ -55,7 +55,7 @@ if (strtotime($user["reset_token_expires_at"]) <= time()) {
 <body>
 <div class="showcase">
     <div class="video-container">
-        <video src="../../media/loginbackground.mp4" autoplay muted loop id="myVideo"></video>
+        <video src="../../assets/images/loginbackground.mp4" autoplay muted loop id="myVideo"></video>
     <div>
 </div>
 <div class="container">

@@ -5,9 +5,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once '../login-register/database.php'; // Include the database connection file
+require_once '../database/db.php'; // Include the database connection file
 
-try {
+try {    
     // Check if a POST request is received
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
         throw new Exception('POST request method required');
@@ -69,6 +69,7 @@ try {
         $userEmail = $_SESSION["user_email"];
 
         // Update the user's profile image path in the database
+        // Update the user's profile image path in the database
         $stmt = $mysqli->prepare("UPDATE users SET icone = ? WHERE email = ?");
 
         // Store the values in variables
@@ -80,6 +81,7 @@ try {
 
         $_SESSION['icone'] = $iconPath;
 
+        // Return a success message
         $response = [
             'success' => true,
             'message' => 'File uploaded successfully',
@@ -90,12 +92,15 @@ try {
         throw new Exception('Failed to move uploaded file to destination directory');
     }
 } catch (Exception $e) {
+    // Handle exceptions and return error message
     $response = [
         'success' => false,
         'message' => $e->getMessage()
     ];
 }
 
+// Set the content type to JSON
 header('Content-Type: application/json');
+// Return the JSON response
 echo json_encode($response);
 ?>

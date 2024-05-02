@@ -2,7 +2,7 @@
 
 $hostName = "localhost";
 $dbUser = "root";
-$dbPassword = "root";
+$dbPassword = "";
 $dbName = "TheGoodReviews";
 $conn = mysqli_connect($hostName, $dbUser, $dbPassword, $dbName);
 if (!$conn) {

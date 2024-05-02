@@ -5,7 +5,7 @@ $token = bin2hex(random_bytes(16));
 $token_hash = hash("sha256", $token);
 $expiry = date("Y-m-d H:i:s", time() + 60 * 30); //reset token expires in 30 minutes
 
-$mysqli = require __DIR__ . "/database.php";
+$mysqli = require __DIR__ . "/../database/db.php";
 
 $sql = "UPDATE users
         SET reset_token_hash = ?,
@@ -41,7 +41,7 @@ $_EMAILMESSAGE = "Password reset link has been sent to your email address. Pleas
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Reset</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link href="../../assets/css/login-register-style.css" rel="stylesheet">
 </head>
 <body>
 <div class="showcase">
