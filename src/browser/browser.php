@@ -55,7 +55,7 @@ if (isset($_SESSION["user"])) {
             <p></p>
             </div>
             <div class="form-group row">
-                <label for="search-field" class="col-sm-3 col-form-label"><p>Games</p></label>
+                <label for="search-field" value="Games" class="col-sm-3 col-form-label">Games</label>
                 <div class="col-sm-9">
                     <input type="search" name="search-text" id="search-field" class="form-control" placeholder="League of legends , Dofus , ..." value="<?php echo htmlspecialchars($searchTerm); ?>">
                 </div>

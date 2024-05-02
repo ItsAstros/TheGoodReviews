@@ -377,7 +377,7 @@ function toggleEditMode() {
 editProfileButton.addEventListener('click', toggleEditMode);
 
 document.getElementById('profileForm').addEventListener('submit', function(event) {
-    if (newFullNameInput.value === '' || newXInput.value === '' || newDiscordInput.value === '') {
+    if (newFullNameInput.value === '') {
         event.preventDefault();
         alert('Please fill in all fields except password.');
     }
