@@ -16,6 +16,7 @@
   --text-default: hsla(217, 24%, 59%, 1);
   --text-carolina-blue: hsla(199, 89%, 49%, 1);
   --text-slate-gray: hsla(217, 17%, 48%, 1);
+  --text-dark-blue: rgb(68, 79, 119);
   --text-dark-brown: rgb(36, 29, 29);
 
   /** Gradient colors */
@@ -490,7 +491,7 @@ body.glassmorphism-nav {
 }
 
 .glassmorphism-nav a {
-  color: black;
+  color: var(--text-dark-blue);
   text-decoration: none;
   position: relative;
   padding: 10px;
@@ -551,23 +552,23 @@ body.glassmorphism-nav {
 
 
 /*-----------------------------------*\
-  #TOPICS
+  #HOTGAMES
 \*-----------------------------------*/
 
-.topic-card {
+.hotgame-card {
   padding: 24px;
   border-radius: var(--radius-8);
 }
 
-.topic-card {
+.hotgame-card {
   box-shadow: var(--shadow-strong);
 }
 
-.topic-card .card-content {
+.hotgame-card .card-content {
   margin-block-end: 15px;
 }
 
-.topic-card .card-text {
+.hotgame-card .card-text {
   color: var(--text-white);
   font-size: var(--fontSize-6);
   margin-block: 15px 20px;
@@ -646,7 +647,7 @@ body.glassmorphism-nav {
 }
 
 .slider-card:is(:hover, :focus-visible) .slider-title {
-  color: var(--text-carolina-blue);
+  color: var(--text-slate-gray);
 }
 
 .slider-subtitle {
@@ -1181,10 +1182,10 @@ body.glassmorphism-nav {
 
 
   /**
-   * TOPICS
+   * HOTGAMES
    */
 
-  .topics .section-title {
+  .hotgames .section-title {
     font-size: 2rem;
   }
 
@@ -1326,10 +1327,10 @@ body.glassmorphism-nav {
 
 
   /** 
-   * TOPICS
+   * HOTGAMES
    */
 
-  .topic-card {
+  .hotgame-card {
     display: grid;
     grid-template-columns: 0.3fr 1fr;
     align-items: center;
@@ -1448,32 +1449,33 @@ body.glassmorphism-nav {
 
 
   /*********************************************************/
- /*     BROWSER.PHP STYLE                                */
-/********************************************************/
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-/************************************************************************************/
-/*                       Header Styling                                             */
-/************************************************************************************/
-.header {
-  display: flex;
-  padding: 1em;
-}
+  /*     BROWSER.PHP STYLE                                */
+  /********************************************************/
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-.title {
-  flex: 1;
-  position: relative;
-  font-size: 7vw;
-  font-family: "PP Editorial Old";
-  font-weight: 500;
-  color : #7D91B0;
-  text-transform: uppercase;
-  line-height: 1;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
+  /************************************************************************************/
+  /*                       Header Styling                                             */
+  /************************************************************************************/
+  .header {
+    display: flex;
+    padding: 1em;
+  }
+
+  .title {
+    flex: 1;
+    position: relative;
+    font-size: 7vw;
+    font-family: "PP Editorial Old";
+    font-weight: 500;
+    color: #7D91B0;
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
 }
