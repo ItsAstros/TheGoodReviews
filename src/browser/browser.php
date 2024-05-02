@@ -31,6 +31,7 @@ if (!empty($searchTerm) && !empty($searchCategory)) {
     <link rel="stylesheet" href="../../assets/css/browser-style.css">
 </head>
 <body>
+<div>
   <?php 
 if (isset($_SESSION["user"])) {
     if ($_SESSION["isAdmin"]=="yes") {
@@ -42,15 +43,21 @@ if (isset($_SESSION["user"])) {
     visitor_header_template();
     }
 ?>
+</div>
+    <div class="header-title">
+            <div class="title">
+                Browse your favorite games
+            </div>
+    </div>
 <section class="search-form">
         <form action="" method="GET" name="search" role="search" style="width: 70%;">
         <div class="form-group row">
             <p></p>
             </div>
             <div class="form-group row">
-                <label for="search-field" class="col-sm-3 col-form-label">Games</label>
+                <label for="search-field" class="col-sm-3 col-form-label"><p>Games</p></label>
                 <div class="col-sm-9">
-                    <input type="search" name="search-text" id="search-field" class="form-control" placeholder="e.g. pizza, pet supplies" value="<?php echo htmlspecialchars($searchTerm); ?>">
+                    <input type="search" name="search-text" id="search-field" class="form-control" placeholder="League of legends , Dofus , ..." value="<?php echo htmlspecialchars($searchTerm); ?>">
                 </div>
             </div>
             <div class="form-group row">
