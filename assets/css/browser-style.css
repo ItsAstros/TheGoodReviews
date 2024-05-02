@@ -341,14 +341,6 @@ label {
   transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
 }
 
-
-label:hover {
-  background: #7D91B0;
-  color: white;
-  border: 1px solid white;
-  border-radius: 1px;
-}
-
 label p {
   color: var(--bg-oxford-blue-2);
   z-index: 2;
