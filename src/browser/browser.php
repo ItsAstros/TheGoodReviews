@@ -27,8 +27,11 @@ if (!empty($searchTerm) && !empty($searchCategory)) {
 <html>
 <head>
     <title>TheGoodReviews</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/browser-style.css">
+    <link rel="shortcut icon" href="../../assets/images/favicon.svg" type="image/svg+xml">
+    <style>
+
+    </style>
 </head>
 <body>
 <div>
@@ -40,78 +43,69 @@ if (isset($_SESSION["user"])) {
         user_header_template();
     }
     } else {
-    visitor_header_template();
+        visitor_header_template();
     }
 ?>
 </div>
     <div class="header-title">
-            <div class="title">
-                Browse your favorite games
-            </div>
+        <div class="title">
+            Browse your favorite games
+        </div>
     </div>
-<section class="search-form">
-        <form action="" method="GET" name="search" role="search" style="width: 70%;">
-        <div class="form-group row">
-            <p></p>
+    <section class="search-form">
+        <form action="" method="GET" name="search" role="search">
+            <div class="form-group">
+                <label for="search-field">Games</label>
+                <input type="search" name="search-text" id="search-field" class="form-control" placeholder="League of legends , Dofus , ..." value="<?php echo htmlspecialchars($searchTerm); ?>">
             </div>
-            <div class="form-group row">
-                <label for="search-field" value="Games" class="col-sm-3 col-form-label">Games</label>
-                <div class="col-sm-9">
-                    <input type="search" name="search-text" id="search-field" class="form-control" placeholder="League of legends , Dofus , ..." value="<?php echo htmlspecialchars($searchTerm); ?>">
-                </div>
+            <div class="form-group">
+                <label for="categories">Categories</label>
+                <select name="search-categories" id="categories" class="form-control">
+                    <option value="">All Categories</option>
+                    <?php
+                    while ($row = mysqli_fetch_assoc($categories)) {
+                        $selected = ($searchCategory == $row['CategoryName']) ? 'selected' : '';
+                        echo '<option value="' . $row['CategoryName'] . '" ' . $selected . '>' . $row['CategoryName'] . '</option>';
+                    }
+                    ?>
+                </select>
             </div>
-            <div class="form-group row">
-                <label for="categories" class="col-sm-3 col-form-label">Categories</label>
-                <div class="col-sm-9">
-                    <select name="search-categories" id="categories" class="form-control">
-                        <option value="">All Categories</option>
-                        <?php
-                        while ($row = mysqli_fetch_assoc($categories)) {
-                            $selected = ($searchCategory == $row['CategoryName']) ? 'selected' : '';
-                            echo '<option value="' . $row['CategoryName'] . '" ' . $selected . '>' . $row['CategoryName'] . '</option>';
-                        }
-                        ?>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-12">
-                    <button class="btn btn-primary btn-block">
-                        Search
-                    </button>
-                </div>
+            <div class="form-group">
+                <button class="btn" type="submit">Search</button>
             </div>
         </form>
     </section> 
     <section id="Games">
-        
         <div class="container">
-            <div class="row row-cols-3 row-cols-md-3 justify-content space-between">
-            <?php
+            <div class="row">
+                <?php
+                $count = 0;
                 if (mysqli_num_rows($games) > 0) {
                     while ($game = mysqli_fetch_assoc($games)) {
-            ?>
+                        ?>
                         <div class="col">
-                            <div class="card">
-                            <a href="game_details.php?game_id=<?php echo $game['GameID']; ?>">
-                                <img src="<?php echo $game['path'];?>" class="card-img-top" alt="<?php echo $game['path'];?>">
-                                <div class="card__content">
-                                    <p class="card__title"><?php echo $game['Title'];?></p>
-                                    <p class="card__description"><?php echo $game['Description'];?></p>
-                                </div>
+                            <div class="game-card">
+                                <a href="game_details.php?game_id=<?php echo $game['GameID']; ?>">
+                                    <img src="<?php echo $game['path'];?>" class="card-img-top" alt="<?php echo $game['path'];?>">
+                                    <div class="game-card__content">
+                                        <p class="game-card__title"><?php echo $game['Title'];?></p>
+                                        <p class="game-card__description"><?php echo $game['Description'];?></p>
+                                    </div>
+                                </a>
                             </div>
-                            </a>
                         </div>
-            <?php
+                        <?php
+                        $count++;
+                        if ($count % 3 == 0) {
+                            echo '</div><div class="row">';
+                        }
                     }
                 } else {
                     echo "<div>No games available</div>";
                 }
-            ?>
+                ?>
             </div>
         </div>
     </section>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -31,15 +31,12 @@ function getAllGames($conn) {
     return $result;
 }
 
-function searchGames($conn, $searchTerm) {
-    $stmt = $conn->prepare("SELECT Title, Developer, GameID,Description, ReleaseDate, path FROM Games WHERE Title LIKE ?");
-    $searchTerm = '%' . $searchTerm . '%';
-    $stmt->bind_param("s", $searchTerm);
-    $stmt->execute();
-    $result = $stmt->get_result();
+function searchGames($conn, $searchTerm, $sortBy = 'title', $order = 'ASC') {
+    $searchTerm = mysqli_real_escape_string($conn, $searchTerm);
+    $sql = "SELECT * FROM games WHERE Title LIKE '%$searchTerm%' ORDER BY $sortBy $order";
+    $result = mysqli_query($conn, $sql);
     return $result;
 }
-
 function searchGamesByTextAndCategory($conn, $searchTerm, $categoryName) {
     $searchTerm = '%' . $searchTerm . '%';
     $stmt = $conn->prepare("SELECT g.Title, g.path, g.GameID, g.Description, g.ReleaseDate, g.Developer
@@ -78,5 +75,6 @@ function getReviewsDetails($conn, $ReviewID){
     $result = $stmt->get_result();
     return $result->fetch_assoc();
 }
+
 
 ?>

@@ -11,7 +11,7 @@
   --bg-carolina-blue: rgb(35, 211, 255);
   --bg-buttons: rgb(36, 29, 29);
   --bg-oxford-blue: rgba(125, 145, 176, 0.75);
-  --bg-oxford-blue-2: rgb(225, 225, 225);
+  --bg-oxford-blue-2: #7D91B0;
 
   /** Text colors */
   --text-white: rgb(240, 246, 255);
@@ -128,6 +128,7 @@ a {
 body {
   display: block;
   font-size: 16px;
+  font-family: var(--fontFamily-noto_sans);
   line-height: 1.6;
   color: #333;
 }
@@ -212,7 +213,6 @@ body {
 }
 
 .glassmorphism-nav a {
-  margin-top: 16px;
   color: var(--text-dark-blue);
   text-decoration: none;
   position: relative;
@@ -272,17 +272,35 @@ body {
   position: relative;
   margin-bottom: auto;
   margin-right: auto;
-  background-color: #7D91B0;
+  background-color: var(--bg-oxford-blue-2);
   display: flex;
-  z-index: 1;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
-form {
-  font-size: 0;
-  max-width: 50rem;
-  margin: auto;
+.form-group {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  line-height: var(--lineHeight-4);
+  padding: 2px 4px;
+  margin-right: 10px;
+}
+
+.form-group input[type="search"] {
+  flex-grow: 1;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius-6);
 }
 
 .inp-wrap {
@@ -307,47 +325,23 @@ form {
   width: 15%;
 }
 
-.grid-20 {
-  width: 20%;
-}
-
-.grid-25 {
-  width: 25%;
-}
-
-.grid-75 {
-  width: 75%;
-}
-
-.grid-80 {
-  width: 80%;
-}
-
-.grid-100 {
-  width: 100%;
-}
-
 label {
   position: relative;
   padding: 0 1rem;
   display: inline-block;
   vertical-align: middle;
   line-height: 3.125rem;
-  background: white;
+  border-radius: var(--radius-6);
+  background: var(--bg-oxford-blue-2);
   cursor: pointer;
   text-align: center;
   font-weight: 300;
-  color: #7D91B0;
+  color: var(--text-white);
   transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
 }
 
-label:hover {
-  background: #7D91B0;
-  color: white;
-}
-
 label p {
-  color: #7D91B0;
+  color: var(--bg-oxford-blue-2);
   z-index: 2;
 }
 
@@ -410,7 +404,7 @@ button::-moz-focus-inner {
   font-size: 1.1rem;
   border: 0;
   padding: 0 0.3em 0 0;
-  background: #FF1979;
+  background: #ff1979;
   color: white;
   font-weight: 600;
   transition: background 0.25s ease-in-out;
@@ -423,7 +417,7 @@ button::-moz-focus-inner {
 .btn:active {
   outline: 0;
   background: #FFC519;
-  color: #232323;
+  color: var(--text-dark-brown);
 }
 
 .btn:active {
@@ -444,46 +438,96 @@ button::-moz-focus-inner {
 
 .btn:hover #search-icon,
 .btn:focus #search-icon {
-  fill: #232323;
+  fill: var(--text-dark-brown);
 }
 
 /************************************************************************************/
 /*                       Game Cards Styling                                         */
 /************************************************************************************/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
-.card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+.col {
+  flex: 1 0 20%;
+  max-width: 40%;
+  margin: 10px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff1979;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ffc519;
+}
+
+#Games {
+  padding: 20px 0;
+}
+
+.game-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.game-card {
+  width: auto;
   margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
   transition: transform 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card img {
+.game-card img {
   width: 100%;
   height: auto;
 }
 
-.card__content {
-  padding: 20px;
+.game-card__content {
   text-align: center;
+  padding: 10px;
 }
 
-.card__title {
-  margin-bottom: 10px;
-  font-size: 20px;
+.game-card__title {
   font-weight: bold;
-  color: #333;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
-.card__description {
-  color: #666;
+.game-card__description {
   font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 991px) {
+  .game-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 575px) {
+  .game-card {
+    width: calc(100% - 20px);
+  }
 }
 
 /************************************************************************************/
@@ -669,6 +713,12 @@ button::-moz-focus-inner {
   }
 
   .search-form {
+    display: flex;
+    align-items: center;
+    /* Aligns items vertically in the center */
+    position: relative;
+    /* Keeps the container relatively positioned */
+
     padding: 0 1rem;
   }
 }
