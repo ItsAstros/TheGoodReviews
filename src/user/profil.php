@@ -146,7 +146,7 @@ if ($reviewCount > 44) {
             }
         ?>
         <div class="row gutters-sm">
-            <div class="col-md-12">
+            <div class="col-md-12" style="margin-top: 55px; margin-bottom: 5px;">
                 <button type="button" class="btn btn-primary" id="editProfileButton">Edit Profile</button>
             </div>
             <div class="col-md-4 mb-3">
@@ -159,7 +159,7 @@ if ($reviewCount > 44) {
                             <p class="text-secondary mb-1"><?php echo $status;?></p>
                             <div class="d-flex justify-content-between align-items-center">
                             <form method="post" action="profil.php">
-                                <button type="submit" name="deletePhoto" class="btn btn-danger" id="deletePhotoButton">Delete Photo</button>
+                                <button type="submit" name="deletePhoto" class="btn btn-danger mr-2" id="deletePhotoButton">Delete Photo</button>
                             </form>
                             <input type="file" style="position:absolute;left:-99999px;" id="fileInput" name="profileImage" />
                             <button id="changePhotoButton">Change Photo</button>
