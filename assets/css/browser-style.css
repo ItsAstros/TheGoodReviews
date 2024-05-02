@@ -341,8 +341,7 @@ label {
   transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
 }
 
-<<<<<<< HEAD
-=======
+
 label:hover {
   background: #7D91B0;
   color: white;
@@ -350,14 +349,10 @@ label:hover {
   border-radius: 1px;
 }
 
-<<<<<<< HEAD
-=======
->>>>>>> 121b2f128ed83f5c1298008798b1c22bc9b9944f
 label p {
   color: var(--bg-oxford-blue-2);
   z-index: 2;
 }
->>>>>>> origin/main
 
 .search-label {
   width: 25%;
@@ -547,25 +542,29 @@ button::-moz-focus-inner {
 /************************************************************************************/
 /*                       Details Content Styling                                             */
 /************************************************************************************/
-.main-container{
+.main-container {
   width: 100%;
   padding: 0;
   min-height: 100vh;
 }
-.main{
-  display:block;
+
+.main {
+  display: block;
 }
-.gamepage-header{
-  width:100%;
+
+.gamepage-header {
+  width: 100%;
 }
+
 .parallax-container {
-  position:relative;
-  left:0;
+  position: relative;
+  left: 0;
   height: 650px;
   margin-top: 0;
-  width:100%;
+  width: 100%;
   overflow: hidden;
 }
+
 .parallax-background {
   height: 100%;
   width: 100%;
@@ -575,14 +574,15 @@ button::-moz-focus-inner {
   filter: blur(8px);
   transform: scale(1.1);
 }
-.parallax-background:after{
+
+.parallax-background:after {
   position: absolute;
-  left:0;
-  top:0;
-  width:100%;
+  left: 0;
+  top: 0;
+  width: 100%;
   height: 100%;
   content: "";
-  background-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 65%, rgba(0,0,0,0.25)100%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.25)100%);
 }
 
 .header-title-details {
@@ -617,27 +617,32 @@ button::-moz-focus-inner {
   margin-left: 200px;
   padding-bottom: 50px;
 }
+
 .game-cover {
   float: left;
   width: 264px;
   margin-right: 15px;
   margin-top: 90px;
 }
-.img-responsive{
-  display:block;
-  max-width:100%;
-  height:auto;
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
-.game-cover img{
+
+.game-cover img {
   vertical-align: middle;
   height: 100%;
 }
-.game-title-container{
+
+.game-title-container {
   position: relative;
   height: 200px;
   margin-left: 300px;
 }
-.gamepage-title-wrapper{
+
+.gamepage-title-wrapper {
   position: absolute;
   bottom: 0;
   z-index: 2;
@@ -645,20 +650,22 @@ button::-moz-focus-inner {
   min-height: 188px;
   padding-top: 135px;
 }
-.gamepage-title-wrapper p{
+
+.gamepage-title-wrapper p {
   margin-bottom: 10px;
   font-weight: 667;
   font-size: 40px;
   color: #7D91B0;
 
 }
-.gamepage-title-wrapper p1{
+
+.gamepage-title-wrapper p1 {
   font-size: 27px;
   font-weight: 600;
-  color: #7D91B0; 
+  color: #7D91B0;
 }
 
-.gamepage-tabs{
+.gamepage-tabs {
   padding-right: 15px;
   border-right: 1px solid #ECECEC;
 }
@@ -734,6 +741,7 @@ button::-moz-focus-inner {
     width: 25%;
   }
 }
+
 @media (min-width: 420px) {
   .gamepage-summary {
     float: left;
